@@ -10,7 +10,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/kotoko/chihaya/config"
+	"github.com/pushrax/chihaya/config"
 )
 
 func (db *Database) startSerializing() {

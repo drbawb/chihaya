@@ -9,7 +9,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/kotoko/chihaya/bufferpool"
+	"github.com/pushrax/chihaya/bufferpool"
 )
 
 func TestTakeFromEmpty(t *testing.T) {

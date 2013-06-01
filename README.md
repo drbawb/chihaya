@@ -1,7 +1,7 @@
 chihaya
 =======
 
-[![Build Status](https://travis-ci.org/kotoko/chihaya.png?branch=master)](https://travis-ci.org/kotoko/chihaya)
+[![Build Status](https://travis-ci.org/pushrax/chihaya.png?branch=master)](https://travis-ci.org/pushrax/chihaya)
 
 Due to the many inconsistencies AB has with Gazelle, Chihaya is not ready for
 general use. Currently the way Chihaya finds out about new and deleted data is
@@ -13,13 +13,13 @@ architecture is being developed now that will mitigate this.
 Installing
 ----------
 
-    $ go get github.com/kotoko/chihaya
+    $ go get github.com/pushrax/chihaya
 
 Configuration
 -------------
 
 Configuration is done in `config.json`, which you'll need to create by copying
-`config.json.example`. See [config/config.go](https://github.com/kotoko/chihaya/blob/master/config/config.go)
+`config.json.example`. See [config/config.go](https://github.com/pushrax/chihaya/blob/master/config/config.go)
 for a description of each configuration value.
 
 Running

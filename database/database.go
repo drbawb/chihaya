@@ -11,8 +11,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/kotoko/chihaya/bufferpool"
-	"github.com/kotoko/chihaya/config"
+	"github.com/pushrax/chihaya/bufferpool"
+	"github.com/pushrax/chihaya/config"
 	"github.com/ziutek/mymysql/mysql"
 	_ "github.com/ziutek/mymysql/native"
 )

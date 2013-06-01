@@ -4,7 +4,7 @@ script:
     - go test -v ./...
 
 install:
-    - cd $GOPATH/src/github.com/kotoko/chihaya/
+    - cd $GOPATH/src/github.com/pushrax/chihaya/
     - cp config.json.example config.json
     - go get -v
     - go build -v

@@ -2,8 +2,8 @@ package server
 
 import (
 	"bytes"
-	"github.com/kotoko/chihaya/bufferpool"
-	"github.com/kotoko/chihaya/database"
+	"github.com/pushrax/chihaya/bufferpool"
+	"github.com/pushrax/chihaya/database"
 	"net/http"
 	"net/http/httptest"
 	"net/url"

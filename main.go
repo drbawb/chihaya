@@ -12,8 +12,8 @@ import (
 	"runtime"
 	"runtime/pprof"
 
-	"github.com/kotoko/chihaya/config"
-	"github.com/kotoko/chihaya/server"
+	"github.com/pushrax/chihaya/config"
+	"github.com/pushrax/chihaya/server"
 )
 
 var (
