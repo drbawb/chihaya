@@ -7,9 +7,9 @@ package memory
 import (
 	"sync"
 
-	"github.com/kotokoko/chihaya/cache"
-	"github.com/kotokoko/chihaya/config"
-	m "github.com/kotokoko/chihaya/models"
+	"github.com/pushrax/chihaya/cache"
+	"github.com/pushrax/chihaya/config"
+	m "github.com/pushrax/chihaya/models"
 )
 
 type memoryDriver struct{}

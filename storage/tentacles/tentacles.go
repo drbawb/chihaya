@@ -8,9 +8,9 @@ import (
 	"database/sql"
 	"fmt"
 
-	m "github.com/kotokoko/chihaya/models"
-	s "github.com/kotokoko/chihaya/storage"
-	"github.com/kotokoko/config"
+	"github.com/pushrax/chihaya/config"
+	m "github.com/pushrax/chihaya/models"
+	s "github.com/pushrax/chihaya/storage"
 
 	_ "github.com/go-sql-driver/mysql"
 )

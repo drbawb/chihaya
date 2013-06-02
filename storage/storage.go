@@ -5,7 +5,7 @@
 package storage
 
 import (
-	m "github.com/kotokoko/chihaya/models"
+	m "github.com/pushrax/chihaya/models"
 )
 
 var drivers = make(map[string]StorageDriver)

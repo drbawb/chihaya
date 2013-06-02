@@ -7,8 +7,8 @@ package cache
 import (
 	"fmt"
 
-	m "github.com/kotokoko/chihaya/models"
-	"github.com/kotokoko/storage"
+	m "github.com/pushrax/chihaya/models"
+	"github.com/pushrax/storage"
 )
 
 var drivers = make(map[string]CacheDriver)
