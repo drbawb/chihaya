@@ -10,7 +10,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/kotokoko/chihaya/config"
+	"github.com/pushrax/chihaya/config"
 )
 
 /*

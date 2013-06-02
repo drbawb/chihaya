@@ -3,9 +3,9 @@ language: go
 script:
     - go test -v ./...
 
-before_script:
+install:
+    - cd $GOPATH/src/github.com/pushrax/chihaya/
     - cp config.json.example config.json
-    - cp -rfv ./* $GOPATH/src/github.com/kotokoko/chihaya/
-    - go build -v github.com/kotokoko/chihaya
-    - go install -v github.com/kotokoko/chihaya
-    - ./mySQL_sample_setup.sh 
+    - go get -v
+    - go build -v
+    - mysql < mysql_test_schema.sql
