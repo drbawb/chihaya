@@ -41,6 +41,6 @@ Contact
 -------
 
 If you have any questions or want to contribute something, come say hi in the
-IRC channel: [#chihaya on freenode](irc://chat.freenode.net:6667/chihaya)
+IRC channel: #chihaya on [freenode](http://freenode.net/)
 ([webchat](http://webchat.freenode.net?channels=chihaya)).
 
