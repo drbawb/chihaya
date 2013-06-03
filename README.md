@@ -37,3 +37,10 @@ done send a pull request through GitHub. If there's a larger change you want to
 make, it would be preferable to discuss it first via a GitHub issue or by
 getting in touch on IRC.
 
+Contact
+-------
+
+If you have any questions or want to contribute something, come say hi in the
+IRC channel: [#chihaya on freenode](irc://chat.freenode.net:6667/chihaya)
+([webchat](http://webchat.freenode.net?channels=chihaya)).
+
