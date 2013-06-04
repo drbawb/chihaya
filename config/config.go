@@ -73,8 +73,8 @@ type TrackerConfig struct {
 	SlotsEnabled bool                    `json:"slots_enabled"`
 	BindAddress  string                  `json:"addr"`
 
-	// When true disregards download. This value is loaded from the database.
-	GlobalFreeleech bool `json:"global_freeleach"`
+	// When true, discards download statistics. This value is loaded from the database.
+	GlobalFreeleech bool `json:"global_freeleech"`
 
 	// Maximum times to retry a deadlocked query before giving up.
 	MaxDeadlockRetries int `json:"max_deadlock_retries"`
