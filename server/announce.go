@@ -12,7 +12,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/pushrax/chihaya/models"
+	"github.com/pushrax/chihaya/storage"
 )
 
 func (s Server) serveAnnounce(w http.ResponseWriter, r *http.Request) {
@@ -69,7 +69,7 @@ func (s Server) serveAnnounce(w http.ResponseWriter, r *http.Request) {
 		}
 
 		// Create a new peer object from the request
-		peer := &models.Peer{
+		peer := &storage.Peer{
 			ID:           peerID,
 			UserID:       user.ID,
 			TorrentID:    torrent.ID,
@@ -82,8 +82,8 @@ func (s Server) serveAnnounce(w http.ResponseWriter, r *http.Request) {
 		}
 
 		// Look for the user in in the pool of seeders and leechers
-		_, seeder := torrent.Seeders[peerID]
-		_, leecher := torrent.Leechers[peerID]
+		_, seeder := torrent.Seeders[storage.PeerMapKey(peer)]
+		_, leecher := torrent.Leechers[storage.PeerMapKey(peer)]
 
 		switch {
 		// Guarantee that no user is in both pools
@@ -170,11 +170,7 @@ func (s Server) serveAnnounce(w http.ResponseWriter, r *http.Request) {
 				log.Panicf("server: %s", err)
 			}
 			if leecher {
-				err := tx.RemoveLeecher(torrent, peer)
-				if err != nil {
-					log.Panicf("server: %s", err)
-				}
-				err = tx.AddSeeder(torrent, peer)
+				err := tx.LeecherFinished(torrent, peer)
 				if err != nil {
 					log.Panicf("server: %s", err)
 				}
@@ -182,11 +178,7 @@ func (s Server) serveAnnounce(w http.ResponseWriter, r *http.Request) {
 
 		case leecher && left == 0:
 			// A leecher completed but the event was never received
-			err := tx.RemoveLeecher(torrent, peer)
-			if err != nil {
-				log.Panicf("server: %s", err)
-			}
-			err = tx.AddSeeder(torrent, peer)
+			err := tx.LeecherFinished(torrent, peer)
 			if err != nil {
 				log.Panicf("server: %s", err)
 			}
@@ -195,12 +187,6 @@ func (s Server) serveAnnounce(w http.ResponseWriter, r *http.Request) {
 		if ip != peer.IP || port != peer.Port {
 			peer.Port = port
 			peer.IP = ip
-		}
-
-		// If the transaction failed, retry
-		err = tx.Commit()
-		if err != nil {
-			continue
 		}
 
 		// Generate the response
@@ -332,7 +318,7 @@ func minInt(a, b int) int {
 	return b
 }
 
-func writeSeeders(w http.ResponseWriter, t *models.Torrent, count, numWant int, compact bool) {
+func writeSeeders(w http.ResponseWriter, t *storage.Torrent, count, numWant int, compact bool) {
 	for _, seed := range t.Seeders {
 		if count >= numWant {
 			break
@@ -353,7 +339,7 @@ func writeSeeders(w http.ResponseWriter, t *models.Torrent, count, numWant int, 
 	}
 }
 
-func writeLeechers(w http.ResponseWriter, t *models.Torrent, count, numWant int, compact bool) {
+func writeLeechers(w http.ResponseWriter, t *storage.Torrent, count, numWant int, compact bool) {
 	for _, leech := range t.Leechers {
 		if count >= numWant {
 			break
